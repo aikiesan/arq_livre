@@ -1,0 +1,27 @@
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Environments
+venv/
+.env
+
+# Database
+db.sqlite3
+
+# Media files (user-uploaded)
+/media/
+
+# Static files (collected)
+/static_collected/ # This will be the folder where Django collects static files for production
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

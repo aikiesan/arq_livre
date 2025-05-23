@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArqConcursos - {% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Adicione links para bibliotecas CSS como Bulma ou Tailwind CSS aqui, se usar -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'core:home' %}">ArqConcursos</a>
+            <ul>
+                <li><a href="#">Disciplinas</a></li>
+                <li><a href="#">Simulados</a></li>
+                {% if user.is_authenticated %}
+                <li>Olá, {{ user.username }}! <a href="#">Perfil</a> | <a href="#">Sair</a></li>
+                {% else %}
+                <li><a href="#">Entrar</a> | <a href="#">Cadastrar</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Conteúdo específico de cada página virá aqui -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© {% now "Y" %} ArqConcursos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Adicione scripts JS aqui, se usar -->
+</body>
+</html>
